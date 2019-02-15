@@ -1,0 +1,16 @@
+$OpenBSD$
+
+Index: arch/arm/dts/sun50i-h5-orangepi-zero-plus2.dts
+--- arch/arm/dts/sun50i-h5-orangepi-zero-plus2.dts.orig
++++ arch/arm/dts/sun50i-h5-orangepi-zero-plus2.dts
+@@ -132,6 +132,10 @@
+ 	status = "okay";
+ };
+ 
++&ths {
++	status = "okay";
++};
++
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_pins_a>;

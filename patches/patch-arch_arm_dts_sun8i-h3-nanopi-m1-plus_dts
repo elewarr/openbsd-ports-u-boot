@@ -1,0 +1,16 @@
+$OpenBSD$
+
+Index: arch/arm/dts/sun8i-h3-nanopi-m1-plus.dts
+--- arch/arm/dts/sun8i-h3-nanopi-m1-plus.dts.orig
++++ arch/arm/dts/sun8i-h3-nanopi-m1-plus.dts
+@@ -135,6 +135,10 @@
+ 	status = "okay";
+ };
+ 
++&ths {
++	status = "okay";
++};
++
+ &uart3 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart3_pins>, <&uart3_rts_cts_pins>;

@@ -1,0 +1,13 @@
+$OpenBSD$
+
+Index: arch/arm/dts/sun8i-h3-orangepi-pc-plus.dts
+--- arch/arm/dts/sun8i-h3-orangepi-pc-plus.dts.orig
++++ arch/arm/dts/sun8i-h3-orangepi-pc-plus.dts
+@@ -89,3 +89,7 @@
+ 	/* eMMC is missing pull-ups */
+ 	bias-pull-up;
+ };
++
++&ths {
++	status = "okay";
++};

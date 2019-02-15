@@ -1,0 +1,16 @@
+$OpenBSD$
+
+Index: arch/arm/dts/sun50i-a64-orangepi-win.dts
+--- arch/arm/dts/sun50i-a64-orangepi-win.dts.orig
++++ arch/arm/dts/sun50i-a64-orangepi-win.dts
+@@ -322,6 +322,10 @@
+ 	};
+ };
+ 
++&ths {
++	status = "okay";
++};
++
+ /* On debug connector */
+ &uart0 {
+ 	pinctrl-names = "default";

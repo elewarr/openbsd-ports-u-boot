@@ -1,0 +1,16 @@
+$OpenBSD$
+
+Index: arch/arm/dts/sun8i-h3-nanopi-neo.dts
+--- arch/arm/dts/sun8i-h3-nanopi-neo.dts.orig
++++ arch/arm/dts/sun8i-h3-nanopi-neo.dts
+@@ -62,6 +62,10 @@
+ 	status = "okay";
+ };
+ 
++&ths {
++	status = "okay";
++};
++
+ &usb_otg {
+ 	status = "okay";
+ 	dr_mode = "peripheral";

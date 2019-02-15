@@ -1,0 +1,16 @@
+$OpenBSD$
+
+Index: arch/arm/dts/sun50i-a64-nanopi-a64.dts
+--- arch/arm/dts/sun50i-a64-nanopi-a64.dts.orig
++++ arch/arm/dts/sun50i-a64-nanopi-a64.dts
+@@ -276,6 +276,10 @@
+ 	vcc-hdmi-supply = <&reg_dldo1>;
+ };
+ 
++&ths {
++	status = "okay";
++};
++
+ &uart0 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&uart0_pb_pins>;

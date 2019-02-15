@@ -1,0 +1,16 @@
+$OpenBSD$
+
+Index: arch/arm/dts/sun50i-a64-pine64.dts
+--- arch/arm/dts/sun50i-a64-pine64.dts.orig
++++ arch/arm/dts/sun50i-a64-pine64.dts
+@@ -264,6 +264,10 @@
+ 	status = "disabled";
+ };
+ 
++&ths {
++	status = "okay";
++};
++
+ /* On Exp and Euler connectors */
+ &uart0 {
+ 	pinctrl-names = "default";

@@ -1,0 +1,13 @@
+$OpenBSD$
+
+Index: arch/arm/dts/sun8i-h3-orangepi-plus2e.dts
+--- arch/arm/dts/sun8i-h3-orangepi-plus2e.dts.orig
++++ arch/arm/dts/sun8i-h3-orangepi-plus2e.dts
+@@ -77,3 +77,7 @@
+ 		reg = <1>;
+ 	};
+ };
++
++&ths {
++	status = "okay";
++};
