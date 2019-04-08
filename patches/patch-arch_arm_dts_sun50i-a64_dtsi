@@ -8,8 +8,8 @@ Index: arch/arm/dts/sun50i-a64.dtsi
  			compatible = "allwinner,sun50i-a64-sid";
  			reg = <0x1c14000 0x400>;
 +
-+			chip-id {
-+				reg = <0x200 0x16>;
++			chip_id: chip-id@200 {
++				reg = <0x200 0x10>;
 +			};
 +
 +			ths_calib: calib@234 {
