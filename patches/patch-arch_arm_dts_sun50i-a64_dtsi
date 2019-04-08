@@ -3,10 +3,14 @@ $OpenBSD$
 Index: arch/arm/dts/sun50i-a64.dtsi
 --- arch/arm/dts/sun50i-a64.dtsi.orig
 +++ arch/arm/dts/sun50i-a64.dtsi
-@@ -405,6 +405,25 @@
+@@ -405,6 +405,29 @@
  		sid: eeprom@1c14000 {
  			compatible = "allwinner,sun50i-a64-sid";
  			reg = <0x1c14000 0x400>;
++
++			chip-id {
++				reg = <0x200 0x16>;
++			};
 +
 +			ths_calib: calib@234 {
 +				reg = <0x234 0x6>;
