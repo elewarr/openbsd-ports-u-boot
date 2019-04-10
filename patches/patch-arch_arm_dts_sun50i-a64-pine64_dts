@@ -3,14 +3,25 @@ $OpenBSD$
 Index: arch/arm/dts/sun50i-a64-pine64.dts
 --- arch/arm/dts/sun50i-a64-pine64.dts.orig
 +++ arch/arm/dts/sun50i-a64-pine64.dts
-@@ -264,6 +264,10 @@
- 	status = "disabled";
+@@ -79,6 +79,10 @@
+ 	status = "okay";
  };
  
-+&ths {
-+	status = "okay";
++&cpu0 {
++	cpu-supply = <&reg_dcdc2>;
 +};
 +
+ &ehci0 {
+ 	status = "okay";
+ };
+@@ -262,6 +266,10 @@
+ /* On Euler connector */
+ &spdif {
+ 	status = "disabled";
++};
++
++&ths {
++	status = "okay";
+ };
+ 
  /* On Exp and Euler connectors */
- &uart0 {
- 	pinctrl-names = "default";

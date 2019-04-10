@@ -3,7 +3,117 @@ $OpenBSD$
 Index: arch/arm/dts/sun50i-a64.dtsi
 --- arch/arm/dts/sun50i-a64.dtsi.orig
 +++ arch/arm/dts/sun50i-a64.dtsi
-@@ -405,6 +405,29 @@
+@@ -79,6 +79,59 @@
+ 		};
+ 	};
+ 
++	cpu0_opp_table: opp_table0 {
++		compatible = "operating-points-v2";
++		opp-shared;
++
++		opp@648000000 {
++			opp-hz = /bits/ 64 <648000000>;
++			opp-microvolt = <1040000 1040000 1300000>;
++			clock-latency-ns = <244144>; /* 8 32k periods */
++		};
++
++		opp@816000000 {
++			opp-hz = /bits/ 64 <816000000>;
++			opp-microvolt = <1080000 1080000 1300000>;
++			clock-latency-ns = <244144>; /* 8 32k periods */
++		};
++
++		opp@912000000 {
++			opp-hz = /bits/ 64 <912000000>;
++			opp-microvolt = <1120000 1120000 1300000>;
++			clock-latency-ns = <244144>; /* 8 32k periods */
++		};
++
++		opp@960000000 {
++			opp-hz = /bits/ 64 <960000000>;
++			opp-microvolt = <1160000 1160000 1300000>;
++			clock-latency-ns = <244144>; /* 8 32k periods */
++		};
++
++		opp@1008000000 {
++			opp-hz = /bits/ 64 <1008000000>;
++			opp-microvolt = <1200000 1200000 1300000>;
++			clock-latency-ns = <244144>; /* 8 32k periods */
++		};
++
++		opp@1056000000 {
++			opp-hz = /bits/ 64 <1056000000>;
++			opp-microvolt = <1240000 1240000 1300000>;
++			clock-latency-ns = <244144>; /* 8 32k periods */
++		};
++
++		opp@1104000000 {
++			opp-hz = /bits/ 64 <1104000000>;
++			opp-microvolt = <1260000 1260000 1300000>;
++			clock-latency-ns = <244144>; /* 8 32k periods */
++		};
++
++		opp@1152000000 {
++			opp-hz = /bits/ 64 <1152000000>;
++			opp-microvolt = <1300000 1300000 1300000>;
++			clock-latency-ns = <244144>; /* 8 32k periods */
++		};
++	};
++
+ 	cpus {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+@@ -88,6 +141,11 @@
+ 			device_type = "cpu";
+ 			reg = <0>;
+ 			enable-method = "psci";
++			clocks = <&ccu CLK_CPUX>;
++			clock-names = "cpu";
++			operating-points-v2 = <&cpu0_opp_table>;
++			cpu-supply = <&reg_cpu_fallback>;
++			#cooling-cells = <2>;
+ 			next-level-cache = <&L2>;
+ 		};
+ 
+@@ -96,6 +154,7 @@
+ 			device_type = "cpu";
+ 			reg = <1>;
+ 			enable-method = "psci";
++			operating-points-v2 = <&cpu0_opp_table>;
+ 			next-level-cache = <&L2>;
+ 		};
+ 
+@@ -104,6 +163,7 @@
+ 			device_type = "cpu";
+ 			reg = <2>;
+ 			enable-method = "psci";
++			operating-points-v2 = <&cpu0_opp_table>;
+ 			next-level-cache = <&L2>;
+ 		};
+ 
+@@ -112,6 +172,7 @@
+ 			device_type = "cpu";
+ 			reg = <3>;
+ 			enable-method = "psci";
++			operating-points-v2 = <&cpu0_opp_table>;
+ 			next-level-cache = <&L2>;
+ 		};
+ 
+@@ -155,6 +216,13 @@
+ 		method = "smc";
+ 	};
+ 
++	reg_cpu_fallback: reg_cpu_fallback  {
++		compatible = "regulator-fixed";
++		regulator-name = "vdd-cpux-dummy";
++		regulator-min-microvolt = <1100000>;
++		regulator-max-microvolt = <1100000>;
++	};
++
+ 	sound_spdif {
+ 		compatible = "simple-audio-card";
+ 		simple-audio-card,name = "On-board SPDIF";
+@@ -405,6 +473,29 @@
  		sid: eeprom@1c14000 {
  			compatible = "allwinner,sun50i-a64-sid";
  			reg = <0x1c14000 0x400>;
