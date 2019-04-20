@@ -1,4 +1,4 @@
-#	$OpenBSD: Makefile,v 1.51 2019/02/07 20:50:18 phessler Exp $
+#	$OpenBSD: Makefile,v 1.52 2019/04/09 22:32:48 patrick Exp $
 
 BROKEN-sparc64=	Error: the specified option is not accepted in ISB at operand 1 -- isb sy
 
