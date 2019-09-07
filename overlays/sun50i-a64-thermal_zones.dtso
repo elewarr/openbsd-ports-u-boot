@@ -1,0 +1,69 @@
+#include <dt-bindings/thermal/thermal.h>
+
+/ {
+	compatible = "allwinner,sun50i-a64";
+};
+
+&{/} {
+	thermal-zones {
+		cpu-thermal {
+			/* milliseconds */
+			polling-delay-passive = <250>;
+			polling-delay = <1000>;
+			thermal-sensors = <&ths 0>;
+
+			trips {
+				cpu_warm: cpu_warm {
+					temperature = <65000000>;
+					hysteresis = <2000000>;
+					type = "passive";
+				};
+
+				cpu_hot_pre: cpu_hot_pre {
+					temperature = <70000000>;
+					hysteresis = <2000000>;
+					type = "passive";
+				};
+
+				cpu_hot: cpu_hot {
+					temperature = <75000000>;
+					hysteresis = <2000000>;
+					type = "passive";
+				};
+
+				cpu_very_hot: cpu_very_hot {
+					temperature = <90000000>;
+					hysteresis = <2000000>;
+					type = "passive";
+				};
+			};
+
+			cooling-maps {
+				cpu_warm_limit_cpu {
+					trip = <&cpu_warm>;
+					cooling-device = <&cpu0 THERMAL_NO_LIMIT 2>;
+				};
+
+				cpu_hot_pre_limit_cpu {
+					trip = <&cpu_hot_pre>;
+					cooling-device = <&cpu0 2 3>;
+				};
+
+				cpu_hot_limit_cpu {
+					trip = <&cpu_hot>;
+					cooling-device = <&cpu0 3 4>;
+				};
+
+				cpu_very_hot_pre_limit_cpu {
+					trip = <&cpu_very_hot>;
+					cooling-device = <&cpu0 5 6>;
+				};
+
+				cpu_very_hot_limit_cpu {
+					trip = <&cpu_very_hot>;
+					cooling-device = <&cpu0 7 THERMAL_NO_LIMIT>;
+				};
+			};
+		};
+	};
+};

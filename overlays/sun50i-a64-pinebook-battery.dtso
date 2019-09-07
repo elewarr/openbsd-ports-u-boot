@@ -1,0 +1,7 @@
+/ {
+	compatible = "allwinner,sun50i-a64";
+};
+
+&battery_power_supply {
+	status = "okay";
+};

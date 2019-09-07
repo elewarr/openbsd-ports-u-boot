@@ -1,0 +1,11 @@
+/ {
+	compatible = "allwinner,sun50i-a64";
+};
+
+&axp803 {
+	battery_power_supply: battery-power-supply {
+		compatible = "x-powers,axp803-battery-power-supply",
+		     "x-powers,axp813-battery-power-supply";
+		status = "disabled";
+  };
+};

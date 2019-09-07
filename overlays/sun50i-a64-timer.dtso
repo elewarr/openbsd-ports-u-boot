@@ -1,6 +1,3 @@
-/dts-v1/;
-/plugin/;
-
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 / {
 	compatible = "allwinner,sun50i-a64";
