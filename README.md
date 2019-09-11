@@ -12,13 +12,9 @@ Enabling:
 1. getting/setting CPU voltage
 1. reading e-fuses values (required by temp. sensor)
 1. calibrated CPU/GPU temperature readings
-
-#### FreeBSD vs this repository
-The only thing added to overlay is:
-```
-clock-names = "cpu";
-```
-for `sun50i-a64-opp.dtso`.
+1. enabling pwm
+1. enabling battery state readings
+1. enabling thermal zones support
 
 #### Prerequisites
 1. make sure `/usr/ports` are updated
