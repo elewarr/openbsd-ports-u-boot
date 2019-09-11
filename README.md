@@ -12,7 +12,7 @@ Enabling:
 1. getting/setting CPU voltage
 1. reading e-fuses values (required by temp. sensor)
 1. calibrated CPU/GPU temperature readings
-1. enabling pwm
+1. enabling PWM
 1. enabling battery state readings
 1. enabling thermal zones support
 
