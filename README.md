@@ -25,16 +25,4 @@ for `sun50i-a64-opp.dtso`.
 1. make sure `/usr/ports/sysutils/u-boot` can be built for `FLAVOR=aarch64`
 
 #### Building
-1. set correct `FLAVOR`
-```
-export FLAVOR=aarch64
-```
-1. clean up previous u-boot installation, from `/usr/ports/sysutils/u-boot` excute:
-```
-doas make uninstall
-make clean=all
-```
-1. execute `./prepare.sh` from repository root
-1. `cd /usr/ports/sysutils/u-boot`
-1. build: `make`
-1. install `doas make install`
+1. execute `doas ./prepare.sh` from repository root
