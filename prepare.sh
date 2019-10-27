@@ -3,13 +3,17 @@
 export FLAVOR=aarch64
 UBOOT_OVERLAYS_PATH=$(pwd)/overlays
 
+doas chown -R ${USER}:wsrc /usr/local/ports/pobj
+
 cd /usr/ports/sysutils/u-boot
 WRKDIST=$(make show=WRKDIST)
 echo ${WRKDIST}
-make uninstall
+doas make uninstall
 make clean=all
 make patch
 cd -
+
+#exit 0
 
 WRKDIST_DTS_PATH="${WRKDIST}/arch/arm/dts/"
 WRKDIST_OVERLAYS_PATH="${WRKDIST}/arch/arm/dts/overlays/"
@@ -48,5 +52,5 @@ for P in $(find "${UBOOT_OVERLAYS_PATH}" -name "*.dtso"); do
 done
 
 cd /usr/ports/sysutils/u-boot
-make install
+doas make -j2 install
 cd -
