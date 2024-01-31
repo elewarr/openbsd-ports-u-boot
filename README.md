@@ -21,4 +21,4 @@ Enabling:
 1. make sure `/usr/ports/sysutils/u-boot` can be built for `FLAVOR=aarch64`
 
 #### Building
-1. execute `doas ./prepare.sh` from repository root
+1. execute `./prepare.sh` from repository root

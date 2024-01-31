@@ -1,19 +1,18 @@
 #!/usr/bin/env ksh
+set -e
+set -o xtrace
 
-export FLAVOR=aarch64
 UBOOT_OVERLAYS_PATH=$(pwd)/overlays
 
-doas chown -R ${USER}:wsrc /usr/local/ports/pobj
+doas chown -R ${USER}:wsrc /usr/ports/pobj
 
-cd /usr/ports/sysutils/u-boot
+cd /usr/ports/sysutils/u-boot/aarch64
 WRKDIST=$(make show=WRKDIST)
 echo ${WRKDIST}
-doas make uninstall
+doas make uninstall || true
 make clean=all
 make patch
 cd -
-
-#exit 0
 
 WRKDIST_DTS_PATH="${WRKDIST}/arch/arm/dts/"
 WRKDIST_OVERLAYS_PATH="${WRKDIST}/arch/arm/dts/overlays/"
@@ -43,7 +42,7 @@ for P in $(find "${UBOOT_OVERLAYS_PATH}" -name "*.dtso"); do
 
     if [ ! -z "${TARGET}" ]; then
         cp "${P}" "${WRKDIST_OVERLAYS_PATH}/${F}"
-        echo -n "Adding ${F} include to $(basename ${TARGET})... "
+        echo "Adding ${F} include to $(basename ${TARGET})... "	
         echo "#include <overlays/${F}>" >> ${TARGET}
         echo "OK"
     else
@@ -51,6 +50,6 @@ for P in $(find "${UBOOT_OVERLAYS_PATH}" -name "*.dtso"); do
     fi
 done
 
-cd /usr/ports/sysutils/u-boot
-doas make -j2 install
+cd /usr/ports/sysutils/u-boot/aarch64
+doas make install
 cd -
